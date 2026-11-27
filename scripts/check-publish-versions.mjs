@@ -6,7 +6,10 @@ import path from 'node:path';
 const root = process.cwd();
 const args = process.argv.slice(2);
 const has = (f) => args.includes(f);
-const getArg = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
+const getArg = (name) => {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : undefined;
+};
 
 if (has('--help') || has('-h')) {
   console.log(`Usage: node scripts/check-publish-versions.mjs [options]
@@ -47,9 +50,16 @@ function walk(dir, out = []) {
 
 function npmView(name, version) {
   try {
-    const out = execFileSync('npm', ['view', `${name}@${version}`, 'version', '--registry', registry, '--json'], {
-      cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 30000,
-    }).trim();
+    const out = execFileSync(
+      'npm',
+      ['view', `${name}@${version}`, 'version', '--registry', registry, '--json'],
+      {
+        cwd: root,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+        timeout: 30000,
+      },
+    ).trim();
     const parsed = JSON.parse(out);
     const v = Array.isArray(parsed) ? parsed[0] : parsed;
     return { published: true, publishedVersion: String(v) };
@@ -63,12 +73,14 @@ function npmView(name, version) {
 async function mapLimit(items, limit, fn) {
   const res = new Array(items.length);
   let i = 0;
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
-    while (i < items.length) {
-      const idx = i++;
-      res[idx] = await fn(items[idx], idx);
-    }
-  }));
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, async () => {
+      while (i < items.length) {
+        const idx = i++;
+        res[idx] = await fn(items[idx], idx);
+      }
+    }),
+  );
   return res;
 }
 
@@ -107,11 +119,18 @@ if (jsonOut) {
   console.log(JSON.stringify(report, null, 2));
 } else {
   console.log(`Registry: ${registry}`);
-  console.log(`Total: ${summary.total} | publish: ${summary.publish} | skip-same-version: ${summary.skipSameVersion} | error: ${summary.error}`);
+  console.log(
+    `Total: ${summary.total} | publish: ${summary.publish} | skip-same-version: ${summary.skipSameVersion} | error: ${summary.error}`,
+  );
   if (!noRecord) console.log(`Report: ${outFile}`);
   for (const p of checked) {
-    const mark = p.status === 'skip-same-version' ? 'SKIP' : p.status === 'publish' ? 'PUBLISH' : 'ERROR';
-    const detail = p.error ? ` (${p.error})` : p.published ? `npm=${p.publishedVersion}` : 'not-on-registry';
+    const mark =
+      p.status === 'skip-same-version' ? 'SKIP' : p.status === 'publish' ? 'PUBLISH' : 'ERROR';
+    const detail = p.error
+      ? ` (${p.error})`
+      : p.published
+        ? `npm=${p.publishedVersion}`
+        : 'not-on-registry';
     console.log(`${mark}\t${p.name}@${p.version}\t${detail}`);
   }
 }
@@ -121,7 +140,15 @@ if (doPublish) {
   console.log(`\nPublishing ${toPublish.length} package(s)...`);
   let failed = 0;
   for (const p of toPublish) {
-    const cmd = ['pnpm', 'publish', '--access', 'public', '--no-git-checks', '--registry', registry];
+    const cmd = [
+      'pnpm',
+      'publish',
+      '--access',
+      'public',
+      '--no-git-checks',
+      '--registry',
+      registry,
+    ];
     if (dryRun) cmd.push('--dry-run');
     console.log(`\n==> ${p.name}@${p.version}`);
     try {
