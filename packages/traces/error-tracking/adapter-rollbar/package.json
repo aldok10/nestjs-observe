@@ -1,0 +1,49 @@
+{
+  "name": "@aldok10/nestjs-observe-error-tracking-rollbar",
+  "version": "0.1.0",
+  "description": "Rollbar adapter for @aldok10/nestjs-observe-error-tracking",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format:check": "prettier --check src"
+  },
+  "dependencies": {
+    "@aldok10/nestjs-observe-core": "^0.1.0",
+    "@aldok10/nestjs-observe-error-tracking": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7"
+  },
+  "peerDependencies": {
+    "rollbar": "^2.26.0 || ^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "rollbar": {
+      "optional": true
+    }
+  },
+  "sideEffects": false
+}
