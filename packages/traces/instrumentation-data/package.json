@@ -1,0 +1,39 @@
+{
+  "name": "@aldok10/nestjs-observe-tracing-instrumentation-data",
+  "version": "0.1.0",
+  "description": "Semantic-convention tracing helpers for database, Redis, queue, and worker operations",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format:check": "prettier --check src"
+  },
+  "dependencies": {
+    "@aldok10/nestjs-observe-tracing": "^0.1.0",
+    "@opentelemetry/api": "^1.10.0",
+    "@opentelemetry/semantic-conventions": "^1.45.0"
+  },
+  "sideEffects": false
+}
