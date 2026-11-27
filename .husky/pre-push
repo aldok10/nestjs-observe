@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+pnpm run build
+pnpm run lint:ci -- --type-aware .
+pnpm run lint:arch
+pnpm run format:check
+pnpm run typecheck
+pnpm test
+pnpm run publish:dry-run
