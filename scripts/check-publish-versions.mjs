@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -77,6 +77,7 @@ async function mapLimit(items, limit, fn) {
     Array.from({ length: Math.min(limit, items.length) }, async () => {
       while (i < items.length) {
         const idx = i++;
+        // eslint-disable-next-line no-await-in-loop -- bounded concurrency worker
         res[idx] = await fn(items[idx], idx);
       }
     }),
@@ -89,9 +90,9 @@ const pkgs = pkgFiles
   .map((f) => ({ file: f, pkg: JSON.parse(readFileSync(f, 'utf8')) }))
   .filter(({ pkg }) => !pkg.private && pkg.name && pkg.version)
   .map(({ file, pkg }) => ({ name: pkg.name, version: pkg.version, dir: path.dirname(file) }))
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .toSorted((a, b) => a.name.localeCompare(b.name));
 
-const checked = await mapLimit(pkgs, 8, async (p) => {
+const checked = await mapLimit(pkgs, 8, (p) => {
   const r = npmView(p.name, p.version);
   const sameVersionPublished = r.published && r.publishedVersion === p.version;
   const status = r.error ? 'error' : sameVersionPublished ? 'skip-same-version' : 'publish';

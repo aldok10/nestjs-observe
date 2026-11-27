@@ -212,6 +212,9 @@ importers:
       fastify:
         specifier: ^5.12.8
         version: 5.12.8
+      husky:
+        specifier: ^9.1.7
+        version: 9.1.7
       oxlint:
         specifier: ^1.95.0
         version: 1.95.0(oxlint-tsgolint@7.0.2009)
@@ -2056,6 +2059,11 @@ packages:
     resolution: {integrity: sha512-Z+8unD6em/MJwyrkWQ2M3wygRGI1+MztbutiNwk1DCuEPXOZRWGjtcMPZYP1exY9iNZMhd7ZOSMQSo9WYtiQRw==}
     hasBin: true
 
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   iconv-lite@0.7.3:
     resolution: {integrity: sha512-IKXpvIzjnC9XTAUbVBcMfGS0EPaIXtW6v+zr+RRp+hqULEpo0owZax6wyRwPOJbWbzjYspQwusTsfVr0ifh4uQ==}
     engines: {node: '>=0.10.0'}
@@ -2271,12 +2279,6 @@ packages:
     resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  napi-windows-process-start-time@0.1.1:
-    resolution: {integrity: sha512-zHxhzKsIFu3elch3eFw69WEUGc79DFhbc3nD/WEOzWL/pFFLZRW13EHnuO0c+0YjncE5uCaS9ICHxOBXkb6vPw==}
-    engines: {node: '>=20'}
-    cpu: [x64, arm64]
-    os: [win32]
 
   negotiator@1.1.0:
     resolution: {integrity: sha512-NMPBRMJgiQHjbd8phG3Vebdx4kZ1H121rbl5IkMqeOsahptB9BKo/d7oJ3zTXqTgagn2bWlNSXkh0QUGM31RYg==}
@@ -3932,6 +3934,8 @@ snapshots:
 
   human-id@4.2.2: {}
 
+  husky@9.1.7: {}
+
   iconv-lite@0.7.3:
     dependencies:
       safer-buffer: 2.1.2
@@ -4106,9 +4110,6 @@ snapshots:
       thenify-all: 1.6.0
 
   nanoid@3.3.20: {}
-
-  napi-windows-process-start-time@0.1.1:
-    optional: true
 
   negotiator@1.1.0:
     dependencies:
@@ -4582,7 +4583,6 @@ snapshots:
       '@types/node': 22.20.7
       esbuild: 0.27.7
       fsevents: 2.3.3
-      napi-windows-process-start-time: 0.1.1
       yaml: 2.9.1
 
   vitest@5.1.2(@opentelemetry/api@1.10.0)(@types/node@22.20.7)(@vitest/coverage-v8@5.1.2)(vite@8.4.0(@types/node@22.20.7)(esbuild@0.27.7)(yaml@2.9.1)):
