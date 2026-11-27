@@ -1,0 +1,81 @@
+{
+  "name": "@aldok10/nestjs-observe-core",
+  "version": "0.1.0",
+  "description": "Minimal domain-neutral observability primitives for resource metadata, lifecycle coordination, context, diagnostics, and optional peers",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./resource": {
+      "types": "./dist/resource/index.d.ts",
+      "import": "./dist/resource/index.js",
+      "require": "./dist/resource/index.cjs"
+    },
+    "./lifecycle": {
+      "types": "./dist/lifecycle/index.d.ts",
+      "import": "./dist/lifecycle/index.js",
+      "require": "./dist/lifecycle/index.cjs"
+    },
+    "./exceptions": {
+      "types": "./dist/exceptions/index.d.ts",
+      "import": "./dist/exceptions/index.js",
+      "require": "./dist/exceptions/index.cjs"
+    },
+    "./diagnostics": {
+      "types": "./dist/diagnostics/index.d.ts",
+      "import": "./dist/diagnostics/index.js",
+      "require": "./dist/diagnostics/index.cjs"
+    },
+    "./peers": {
+      "types": "./dist/peers/index.d.ts",
+      "import": "./dist/peers/index.js",
+      "require": "./dist/peers/index.cjs"
+    },
+    "./context": {
+      "types": "./dist/context/index.d.ts",
+      "import": "./dist/context/index.js",
+      "require": "./dist/context/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/resource/index.ts src/lifecycle/index.ts src/exceptions/index.ts src/diagnostics/index.ts src/peers/index.ts src/context/index.ts --format esm,cjs --splitting --shims --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format:check": "prettier --check src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldok10/nestjs-observe.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/aldok10/nestjs-observe#readme",
+  "bugs": {
+    "url": "https://github.com/aldok10/nestjs-observe/issues"
+  },
+  "author": "aldok10",
+  "keywords": [
+    "nestjs",
+    "observability",
+    "telemetry",
+    "core",
+    "typescript"
+  ],
+  "sideEffects": false
+}
