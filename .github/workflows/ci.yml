@@ -65,7 +65,7 @@ jobs:
       - name: Require zero production advisories
         run: |
           pnpm audit --prod --json > audit.json
-          node -e "const a=require('./audit.json'); const t=a.metadata && a.metadata.vulnerabilities ? a.metadata.vulnerabilities.total : 0; console.log('production advisories:', t); if (t !== 0) { console.error('::error::Expected 0 production advisories, found ' + t); process.exit(1); }"
+          node -e "const a=require('./audit.json'); const v=(a.metadata&&a.metadata.vulnerabilities)||{}; const t=['info','low','moderate','high','critical'].reduce((s,k)=>s+(Number(v[k])||0),0); console.log('production advisories:', t); if (t !== 0) { console.error('::error::Expected 0 production advisories, found ' + t); process.exit(1); }"
 
   ci-status:
     name: CI result
