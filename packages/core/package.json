@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minimal domain-neutral observability primitives for resource metadata, lifecycle coordination, context, diagnostics, and optional peers",
   "type": "module",
   "engines": {

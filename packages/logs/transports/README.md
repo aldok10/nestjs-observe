@@ -241,7 +241,7 @@ const loki = new LokiTransport({
 
 ## Dependencies and Optional Integrations
 
-- **Runtime dependencies**: `@aldok10/nestjs-observe-logger-core`, `@aldok10/nestjs-observe-logger-delivery`, `@aldok10/nestjs-observe-logger-formatters` (`^0.1.0`)
+- **Runtime dependencies**: `@aldok10/nestjs-observe-logger-core`, `@aldok10/nestjs-observe-logger-delivery`, `@aldok10/nestjs-observe-logger-formatters` (`^0.1.1`)
 - **Optional peer dependency**: `rotating-file-stream` (`^4.0.0`)
 
 ## Lifecycle and Resource Management

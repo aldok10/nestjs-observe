@@ -115,7 +115,7 @@ Inject a `BugsnagClientLike` mock in tests to assert `bsEvent.severity`, `bsEven
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.0`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.0`).
+- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.1`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.1`).
 - **Optional peer dependency:** `@bugsnag/js` (`^7.0.0 || ^8.0.0`).
 
 ## Lifecycle and Resource Management

@@ -47,7 +47,7 @@ yarn add -D @aldok10/nestjs-observe-error-tracking-testing @aldok10/nestjs-obser
 
 - **Node.js:** `>=22`
 - **Module Formats:** ESM (`import`) and CJS (`require`) with TypeScript declarations (`.d.ts`)
-- **Dependencies:** `@aldok10/nestjs-observe-error-tracking` (`^0.1.0`)
+- **Dependencies:** `@aldok10/nestjs-observe-error-tracking` (`^0.1.1`)
 
 ## Quick Start
 
@@ -135,7 +135,7 @@ Pass any `ErrorTrackingOptions` (except `destinations`) into `createTestErrorTra
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependency:** `@aldok10/nestjs-observe-error-tracking` (`^0.1.0`).
+- **Direct dependency:** `@aldok10/nestjs-observe-error-tracking` (`^0.1.1`).
 - No optional peer dependencies.
 
 ## Lifecycle and Resource Management

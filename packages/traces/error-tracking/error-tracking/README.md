@@ -255,7 +255,7 @@ monitor.start();
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependency:** `@aldok10/nestjs-observe-core` (`^0.1.0`)
+- **Direct dependency:** `@aldok10/nestjs-observe-core` (`^0.1.1`)
 - **Optional `@opentelemetry/api`:** Used by `createTraceContextEnricher` when no custom provider is passed to read the active span context.
 - **Optional `rxjs`:** Used by `ErrorTrackingInterceptor` (`tap`) to observe observable stream errors without adding a hard runtime dependency.
 

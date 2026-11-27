@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-metrics-exporter-prometheus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Prometheus MetricReader and scrape helper for @aldok10/nestjs-observe-metrics",
   "type": "module",
   "engines": {
@@ -34,7 +34,7 @@
     "@opentelemetry/exporter-prometheus": "^0.301.2"
   },
   "devDependencies": {
-    "@aldok10/nestjs-observe-metrics": "^0.1.0"
+    "@aldok10/nestjs-observe-metrics": "^0.1.1"
   },
   "sideEffects": false
 }

@@ -165,7 +165,7 @@ const transport = new NdjsonTransport({
 
 ## Dependencies and Optional Integrations
 
-- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.0`)
+- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.1`)
 
 ## Lifecycle and Resource Management
 

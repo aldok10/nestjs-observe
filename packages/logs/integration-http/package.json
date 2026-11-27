@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Independent Express and Fastify HTTP request logging integration for @aldok10/nestjs-observe-logger",
   "type": "module",
   "engines": {
@@ -36,7 +36,7 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-logger-core": "^0.1.0"
+    "@aldok10/nestjs-observe-logger-core": "^0.1.1"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.0.0 || ^11.0.0 || ^12.0.0",

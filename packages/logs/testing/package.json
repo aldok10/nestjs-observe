@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-testing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "In-memory test transports and helpers for @aldok10/nestjs-observe-logger",
   "type": "module",
   "engines": {
@@ -31,7 +31,7 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-logger-core": "^0.1.0"
+    "@aldok10/nestjs-observe-logger-core": "^0.1.1"
   },
   "repository": {
     "type": "git",

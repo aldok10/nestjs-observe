@@ -108,7 +108,7 @@ export class TracingRuntime implements LifecycleParticipant {
     return this.provider;
   }
 
-  getTracer(name = '@aldok10/nestjs-observe-tracing', version = '0.1.0'): Tracer {
+  getTracer(name = '@aldok10/nestjs-observe-tracing', version = '0.1.1'): Tracer {
     return this.getProvider().getTracer(name, version);
   }
 

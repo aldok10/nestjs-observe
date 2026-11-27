@@ -126,7 +126,7 @@ Combine `OtlpErrorAdapter` with `@aldok10/nestjs-observe-tracing` and `createTra
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.0`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.0`).
+- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.1`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.1`).
 - **Optional peer dependency:** `@opentelemetry/api` (`^1.10.0`).
 
 ## Lifecycle and Resource Management

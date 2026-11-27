@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-transports",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Consolidated log transports (Console, File/Rotating Stream, HTTP, Elasticsearch, OpenObserve, Loki, OTLP) for @aldok10/nestjs-observe-logger",
   "type": "module",
   "engines": {
@@ -66,9 +66,9 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-logger-core": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-delivery": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-formatters": "^0.1.0"
+    "@aldok10/nestjs-observe-logger-core": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-delivery": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-formatters": "^0.1.1"
   },
   "peerDependencies": {
     "rotating-file-stream": "^4.0.0"

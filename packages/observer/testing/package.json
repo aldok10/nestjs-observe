@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-testing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unified observability test harness composing Logger, Tracing, and Metrics test doubles",
   "type": "module",
   "engines": {
@@ -31,27 +31,27 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe": "^0.1.0",
-    "@aldok10/nestjs-observe-core": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-testing": "^0.1.0",
+    "@aldok10/nestjs-observe": "^0.1.1",
+    "@aldok10/nestjs-observe-core": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-testing": "^0.1.1",
     "@opentelemetry/sdk-metrics": "^3.1.1",
     "@opentelemetry/sdk-trace": "^3.1.1"
   },
   "devDependencies": {
-    "@aldok10/nestjs-observe-logger": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-testing": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics-testing": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing-testing": "^0.1.0"
+    "@aldok10/nestjs-observe-logger": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-testing": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics-testing": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing-testing": "^0.1.1"
   },
   "peerDependencies": {
-    "@aldok10/nestjs-observe-logger": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-testing": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics-testing": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing-testing": "^0.1.0"
+    "@aldok10/nestjs-observe-logger": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-testing": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics-testing": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing-testing": "^0.1.1"
   },
   "peerDependenciesMeta": {
     "@aldok10/nestjs-observe-logger": {

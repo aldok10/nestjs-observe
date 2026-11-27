@@ -257,31 +257,31 @@ importers:
   packages/logs/adapter-bunyan:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/adapter-log4js:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/adapter-pino:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/adapter-winston:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/context:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/core: {}
@@ -289,68 +289,68 @@ importers:
   packages/logs/delivery:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/filtering:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/formatters:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/integration-http:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/logger:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
       '@aldok10/nestjs-observe-logger-transports':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../transports
     devDependencies:
       '@aldok10/nestjs-observe-logger-adapter-pino':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../adapter-pino
       '@aldok10/nestjs-observe-logger-adapter-winston':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../adapter-winston
       '@aldok10/nestjs-observe-logger-testing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../testing
 
   packages/logs/redaction:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/testing:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
 
   packages/logs/transports:
     dependencies:
       '@aldok10/nestjs-observe-logger-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../core
       '@aldok10/nestjs-observe-logger-delivery':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../delivery
       '@aldok10/nestjs-observe-logger-formatters':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../formatters
     devDependencies:
       '@types/node':
@@ -382,16 +382,16 @@ importers:
         version: 0.301.2(@opentelemetry/api@1.10.0)
     devDependencies:
       '@aldok10/nestjs-observe-metrics':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../metrics
 
   packages/metrics/instrumentation:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@aldok10/nestjs-observe-metrics':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../metrics
       '@opentelemetry/api':
         specifier: ^1.10.0
@@ -403,7 +403,7 @@ importers:
   packages/metrics/metrics:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@opentelemetry/api':
         specifier: ^1.10.0
@@ -418,10 +418,10 @@ importers:
   packages/metrics/testing:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@aldok10/nestjs-observe-metrics':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../metrics
       '@opentelemetry/sdk-metrics':
         specifier: ^3.1.1
@@ -430,35 +430,35 @@ importers:
   packages/observer/observer:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
     devDependencies:
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../traces/error-tracking/error-tracking
       '@aldok10/nestjs-observe-logger':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../logs/logger
       '@aldok10/nestjs-observe-logger-testing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../logs/testing
       '@aldok10/nestjs-observe-metrics':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../metrics/metrics
       '@aldok10/nestjs-observe-tracing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../traces/tracing
 
   packages/observer/testing:
     dependencies:
       '@aldok10/nestjs-observe':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../observer
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@aldok10/nestjs-observe-logger-testing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../logs/testing
       '@opentelemetry/sdk-metrics':
         specifier: ^3.1.1
@@ -468,28 +468,28 @@ importers:
         version: 3.1.1(@opentelemetry/api@1.10.0)
     devDependencies:
       '@aldok10/nestjs-observe-logger':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../logs/logger
       '@aldok10/nestjs-observe-metrics':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../metrics/metrics
       '@aldok10/nestjs-observe-metrics-testing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../metrics/testing
       '@aldok10/nestjs-observe-tracing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../traces/tracing
       '@aldok10/nestjs-observe-tracing-testing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../traces/testing
 
   packages/traces/error-tracking/adapter-airbrake:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -499,10 +499,10 @@ importers:
   packages/traces/error-tracking/adapter-appdynamics:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -512,10 +512,10 @@ importers:
   packages/traces/error-tracking/adapter-bugsink:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -525,10 +525,10 @@ importers:
   packages/traces/error-tracking/adapter-bugsnag:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -538,10 +538,10 @@ importers:
   packages/traces/error-tracking/adapter-datadog:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -551,10 +551,10 @@ importers:
   packages/traces/error-tracking/adapter-dynatrace:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -564,10 +564,10 @@ importers:
   packages/traces/error-tracking/adapter-elastic-apm:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -577,10 +577,10 @@ importers:
   packages/traces/error-tracking/adapter-glitchtip:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -590,10 +590,10 @@ importers:
   packages/traces/error-tracking/adapter-highlight:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -603,10 +603,10 @@ importers:
   packages/traces/error-tracking/adapter-honeybadger:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -616,10 +616,10 @@ importers:
   packages/traces/error-tracking/adapter-new-relic:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -629,10 +629,10 @@ importers:
   packages/traces/error-tracking/adapter-otlp:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -642,10 +642,10 @@ importers:
   packages/traces/error-tracking/adapter-raygun:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -655,10 +655,10 @@ importers:
   packages/traces/error-tracking/adapter-rollbar:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -668,10 +668,10 @@ importers:
   packages/traces/error-tracking/adapter-sentry:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -681,10 +681,10 @@ importers:
   packages/traces/error-tracking/adapter-splunk:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
     devDependencies:
       '@types/node':
@@ -694,7 +694,7 @@ importers:
   packages/traces/error-tracking/error-tracking:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../../core
     devDependencies:
       '@types/node':
@@ -704,7 +704,7 @@ importers:
   packages/traces/error-tracking/testing:
     dependencies:
       '@aldok10/nestjs-observe-error-tracking':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../error-tracking
 
   packages/traces/exporter-console:
@@ -725,7 +725,7 @@ importers:
   packages/traces/instrumentation-data:
     dependencies:
       '@aldok10/nestjs-observe-tracing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../tracing
       '@opentelemetry/api':
         specifier: ^1.10.0
@@ -746,10 +746,10 @@ importers:
   packages/traces/testing:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@aldok10/nestjs-observe-tracing':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../tracing
       '@opentelemetry/sdk-trace':
         specifier: ^3.1.1
@@ -758,7 +758,7 @@ importers:
   packages/traces/tracing:
     dependencies:
       '@aldok10/nestjs-observe-core':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: link:../../core
       '@opentelemetry/api':
         specifier: ^1.10.0
@@ -2272,7 +2272,7 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  napi-windows-process-start-time@0.1.0:
+  napi-windows-process-start-time@0.1.1:
     resolution: {integrity: sha512-zHxhzKsIFu3elch3eFw69WEUGc79DFhbc3nD/WEOzWL/pFFLZRW13EHnuO0c+0YjncE5uCaS9ICHxOBXkb6vPw==}
     engines: {node: '>=20'}
     cpu: [x64, arm64]
@@ -4107,7 +4107,7 @@ snapshots:
 
   nanoid@3.3.20: {}
 
-  napi-windows-process-start-time@0.1.0:
+  napi-windows-process-start-time@0.1.1:
     optional: true
 
   negotiator@1.1.0:
@@ -4582,7 +4582,7 @@ snapshots:
       '@types/node': 22.20.7
       esbuild: 0.27.7
       fsevents: 2.3.3
-      napi-windows-process-start-time: 0.1.0
+      napi-windows-process-start-time: 0.1.1
       yaml: 2.9.1
 
   vitest@5.1.2(@opentelemetry/api@1.10.0)(@types/node@22.20.7)(@vitest/coverage-v8@5.1.2)(vite@8.4.0(@types/node@22.20.7)(esbuild@0.27.7)(yaml@2.9.1)):

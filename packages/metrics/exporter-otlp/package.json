@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-metrics-exporter-otlp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OTLP/HTTP metric exporter and PeriodicExportingMetricReader factory for @aldok10/nestjs-observe-metrics",
   "type": "module",
   "engines": {

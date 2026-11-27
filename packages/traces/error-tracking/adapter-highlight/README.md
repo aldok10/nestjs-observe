@@ -119,7 +119,7 @@ Pass a pre-initialized `HighlightClientLike` (or mock) via `options.client` with
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.0`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.0`).
+- **Direct dependencies:** `@aldok10/nestjs-observe-core` (`^0.1.1`), `@aldok10/nestjs-observe-error-tracking` (`^0.1.1`).
 - **Optional peer dependency:** `@highlight-run/node` (`^3.0.0 || ^4.0.0`).
 
 ## Lifecycle and Resource Management

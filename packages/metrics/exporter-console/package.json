@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-metrics-exporter-console",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Console metric exporter and PeriodicExportingMetricReader factory for @aldok10/nestjs-observe-metrics",
   "type": "module",
   "engines": {

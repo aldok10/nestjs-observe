@@ -469,7 +469,7 @@ for (const pkg of packages) {
         fail(
           `${pkg.name}: ${field}.${dep} uses "${range}"`,
           'Publishable package manifests must not use workspace:* protocol.',
-          `Replace "${range}" with "^0.1.0" for ${dep}.`,
+          `Replace "${range}" with "^0.1.1" for ${dep}.`,
         );
       }
       if (dep === pkg.name) {

@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-tracing-exporter-otlp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OTLP/HTTP trace exporter and BatchSpanProcessor factory for @aldok10/nestjs-observe-tracing",
   "type": "module",
   "engines": {
