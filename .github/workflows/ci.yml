@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint (Oxlint, type-aware)
-        run: pnpm run lint:ci -- --type-aware
+        run: pnpm run lint:ci -- --type-aware .
       - name: Architecture check
         run: pnpm run lint:arch
       - name: Format check
