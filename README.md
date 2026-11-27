@@ -12,13 +12,13 @@ Modular observability packages for NestJS and Node.js. The monorepo provides sta
 
 Each pillar can be installed and used independently. Logs, traces, metrics, and error tracking do not depend on each other at runtime. Install only the packages you need.
 
-| Need | Install | Main package |
-|---|---|---|
-| Logs only | `@aldok10/nestjs-observe-logger` (NestJS) or `@aldok10/nestjs-observe-logger-core` (Node.js) | [Logger](packages/logs/logger/README.md) |
-| Traces only | `@aldok10/nestjs-observe-tracing` | [Tracing](packages/traces/tracing/README.md) |
-| Error tracking only | `@aldok10/nestjs-observe-error-tracking` + provider adapter | [Error Tracking](packages/traces/error-tracking/error-tracking/README.md) |
-| Metrics only | `@aldok10/nestjs-observe-metrics` | [Metrics](packages/metrics/metrics/README.md) |
-| Unified composition | `@aldok10/nestjs-observe` + enabled pillar packages | [Observer](packages/observer/observer/README.md) |
+| Need                | Install                                                                                      | Main package                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Logs only           | `@aldok10/nestjs-observe-logger` (NestJS) or `@aldok10/nestjs-observe-logger-core` (Node.js) | [Logger](packages/logs/logger/README.md)                                  |
+| Traces only         | `@aldok10/nestjs-observe-tracing`                                                            | [Tracing](packages/traces/tracing/README.md)                              |
+| Error tracking only | `@aldok10/nestjs-observe-error-tracking` + provider adapter                                  | [Error Tracking](packages/traces/error-tracking/error-tracking/README.md) |
+| Metrics only        | `@aldok10/nestjs-observe-metrics`                                                            | [Metrics](packages/metrics/metrics/README.md)                             |
+| Unified composition | `@aldok10/nestjs-observe` + enabled pillar packages                                          | [Observer](packages/observer/observer/README.md)                          |
 
 ```bash
 # Logger only
@@ -40,7 +40,11 @@ pnpm add @aldok10/nestjs-observe-metrics @opentelemetry/api @nestjs/common @nest
 
 ```ts
 import { Inject, Injectable, Module } from '@nestjs/common';
-import { OBSERVE_LOGGER, ObserveLoggerModule, type UniversalLogger } from '@aldok10/nestjs-observe-logger';
+import {
+  OBSERVE_LOGGER,
+  ObserveLoggerModule,
+  type UniversalLogger,
+} from '@aldok10/nestjs-observe-logger';
 
 @Injectable()
 class AppService {
@@ -134,14 +138,14 @@ export class AppModule {}
 
 ## Package Map
 
-| Area | Main package | Path |
-|---|---|---|
-| Core | `@aldok10/nestjs-observe-core` | `packages/core` |
-| Logs | `@aldok10/nestjs-observe-logger` | `packages/logs/logger` |
-| Traces | `@aldok10/nestjs-observe-tracing` | `packages/traces/tracing` |
+| Area           | Main package                             | Path                                            |
+| -------------- | ---------------------------------------- | ----------------------------------------------- |
+| Core           | `@aldok10/nestjs-observe-core`           | `packages/core`                                 |
+| Logs           | `@aldok10/nestjs-observe-logger`         | `packages/logs/logger`                          |
+| Traces         | `@aldok10/nestjs-observe-tracing`        | `packages/traces/tracing`                       |
 | Error tracking | `@aldok10/nestjs-observe-error-tracking` | `packages/traces/error-tracking/error-tracking` |
-| Metrics | `@aldok10/nestjs-observe-metrics` | `packages/metrics/metrics` |
-| Observer | `@aldok10/nestjs-observe` | `packages/observer/observer` |
+| Metrics        | `@aldok10/nestjs-observe-metrics`        | `packages/metrics/metrics`                      |
+| Observer       | `@aldok10/nestjs-observe`                | `packages/observer/observer`                    |
 
 See [docs/packages/README.md](docs/packages/README.md) for all 47 packages.
 
