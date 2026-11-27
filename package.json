@@ -23,7 +23,9 @@
     "test:consumer": "node scripts/test-consumer-install.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
+    "version:bump": "node scripts/bump-version.mjs",
     "publish:dry-run": "pnpm -r --filter './packages/**' publish --dry-run --access public --no-git-checks",
+    "publish:packages": "pnpm -r --filter './packages/**' publish --access public --no-git-checks",
     "test:coverage": "vitest run --coverage",
     "pack:dry-run": "pnpm -r --filter './packages/**' exec npm pack --dry-run",
     "release": "pnpm build && pnpm test && pnpm run lint && pnpm run typecheck && pnpm changeset publish"
