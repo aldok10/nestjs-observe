@@ -8,7 +8,6 @@ on:
 permissions:
   contents: write
   id-token: write
-  packages: write
 
 concurrency:
   group: dev-release-${{ github.ref }}
@@ -51,36 +50,11 @@ jobs:
       - name: Version snapshot packages
         if: steps.changesets.outputs.has_changesets == 'true'
         run: pnpm changeset version --snapshot dev
-      - name: Publish snapshot packages to npm
+      - name: Publish snapshot packages to npm (npmjs.org)
         if: steps.changesets.outputs.has_changesets == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm changeset publish --tag dev --no-git-tag
-      - name: Publish snapshot packages to GitHub Packages
-        if: steps.changesets.outputs.has_changesets == 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "@aldok10:registry=https://npm.pkg.github.com" >> ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
-          failed=0
-          while IFS= read -r pkg; do
-            [ -z "$pkg" ] && continue
-            echo "Publishing $pkg to GitHub Packages (dev)..."
-            out=$(cd "$pkg" && npm publish --registry https://npm.pkg.github.com --access public --no-git-checks --tag dev 2>&1) && rc=0 || rc=$?
-            if [ "$rc" -eq 0 ]; then
-              echo "$out"
-              continue
-            fi
-            if echo "$out" | grep -Eqi 'previously published|cannot publish over|EPUBLISHCONFLICT|cannot publish over the previously published versions'; then
-              echo "Skipping already-published package: $pkg"
-              continue
-            fi
-            echo "$out"
-            echo "::error::GitHub Packages dev publish failed for $pkg"
-            failed=1
-          done < <(pnpm -r --filter './packages/**' exec pwd)
-          exit "$failed"
       - name: Create dev tag and prerelease
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -95,7 +69,7 @@ jobs:
           git tag -a "$TAG" -m "Dev release $TAG"
           git push origin "$TAG"
           if [ "${{ steps.changesets.outputs.has_changesets }}" = "true" ]; then
-            NOTE="Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}. Snapshot packages published to npm and GitHub Packages with tag dev."
+            NOTE="Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}. Snapshot packages published to npmjs.org with dist-tag dev (no GitHub Packages)."
           else
             NOTE="Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}. No pending changesets; npm snapshot publish skipped."
           fi

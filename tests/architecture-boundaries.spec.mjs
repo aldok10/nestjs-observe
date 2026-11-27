@@ -90,7 +90,7 @@ describe('checker on synthetic fixtures', () => {
 
   const manifest = (name, extra = {}) => ({
     name,
-    version: '0.1.0',
+    version: '0.1.1',
     type: 'module',
     license: 'MIT',
     publishConfig: { access: 'public' },
@@ -107,7 +107,7 @@ describe('checker on synthetic fixtures', () => {
       [
         'nestjs-logger-opentelemetry',
         manifest(OTEL, {
-          dependencies: { [CORE]: '^0.1.0' },
+          dependencies: { [CORE]: '^0.1.1' },
           peerDependencies: { '@opentelemetry/api': '^1.0.0' },
           peerDependenciesMeta: { '@opentelemetry/api': { optional: true } },
         }),

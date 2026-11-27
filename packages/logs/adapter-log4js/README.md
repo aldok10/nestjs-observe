@@ -144,7 +144,7 @@ const logger = new Log4jsLoggerAdapter().create(instance, {
 
 ## Dependencies and Optional Integrations
 
-- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.0`)
+- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.1`)
 - **Peer dependency**: `log4js` (`^6.0.0`)
 
 ## Lifecycle and Resource Management

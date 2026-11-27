@@ -90,7 +90,7 @@ function buildPayload(event: ObserveErrorEvent): Record<string, unknown> {
         resource: { attributes: resourceAttrs },
         scopeLogs: [
           {
-            scope: { name: '@aldok10/nestjs-observe-error-tracking-dynatrace', version: '0.1.0' },
+            scope: { name: '@aldok10/nestjs-observe-error-tracking-dynatrace', version: '0.1.1' },
             logRecords: [
               {
                 timeUnixNano,

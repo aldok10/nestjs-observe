@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Framework-independent universal logging contracts, redaction, formatters, channels, and transports",
   "type": "module",
   "engines": {

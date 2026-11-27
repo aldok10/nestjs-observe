@@ -68,7 +68,7 @@ export class MetricsRuntime implements LifecycleParticipant {
     return this.provider;
   }
 
-  getMeter(name = '@aldok10/nestjs-observe-metrics', version = '0.1.0'): Meter {
+  getMeter(name = '@aldok10/nestjs-observe-metrics', version = '0.1.1'): Meter {
     return this.getProvider().getMeter(name, version);
   }
 

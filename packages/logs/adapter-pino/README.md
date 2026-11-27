@@ -139,7 +139,7 @@ const logger = new PinoLoggerAdapter().create(pino({ level: 'trace' }), {
 
 ## Dependencies and Optional Integrations
 
-- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.0`)
+- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.1`)
 - **Peer dependency**: `pino` (`^9.0.0 || ^10.0.0`)
 
 ## Lifecycle and Resource Management

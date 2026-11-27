@@ -76,10 +76,10 @@ yarn add @aldok10/nestjs-observe-logger @aldok10/nestjs-observe-tracing @aldok10
   - `@nestjs/core`: `^10.0.0 || ^11.0.0 || ^12.0.0`
   - `reflect-metadata`: `^0.1.12 || ^0.2.0`
 - **Optional Peer Dependencies** (from `package.json`, marked optional in `peerDependenciesMeta`):
-  - `@aldok10/nestjs-observe-logger`: `^0.1.0`
-  - `@aldok10/nestjs-observe-tracing`: `^0.1.0`
-  - `@aldok10/nestjs-observe-metrics`: `^0.1.0`
-  - `@aldok10/nestjs-observe-error-tracking`: `^0.1.0`
+  - `@aldok10/nestjs-observe-logger`: `^0.1.1`
+  - `@aldok10/nestjs-observe-tracing`: `^0.1.1`
+  - `@aldok10/nestjs-observe-metrics`: `^0.1.1`
+  - `@aldok10/nestjs-observe-error-tracking`: `^0.1.1`
 - **Module Formats**: ESM (`import`), CommonJS (`require`), and TypeScript type definitions (`.d.ts`)
 
 ## Quick Start
@@ -238,7 +238,7 @@ await runtime.shutdown(5000);
 
 ## Dependencies and Optional Integrations
 
-- **Direct dependency**: `@aldok10/nestjs-observe-core` (`^0.1.0`).
+- **Direct dependency**: `@aldok10/nestjs-observe-core` (`^0.1.1`).
 - **Required peer dependencies**: `@nestjs/common`, `@nestjs/core`, `reflect-metadata`.
 - **Optional peer dependencies**: `@aldok10/nestjs-observe-logger`, `@aldok10/nestjs-observe-tracing`, `@aldok10/nestjs-observe-metrics`, `@aldok10/nestjs-observe-error-tracking`.
 

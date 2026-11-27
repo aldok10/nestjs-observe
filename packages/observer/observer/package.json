@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unified NestJS observability integration composing standalone Logger, Tracing, and Metrics packages",
   "type": "module",
   "engines": {
@@ -31,20 +31,20 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-core": "^0.1.0"
+    "@aldok10/nestjs-observe-core": "^0.1.1"
   },
   "devDependencies": {
-    "@aldok10/nestjs-observe-error-tracking": "^0.1.0",
-    "@aldok10/nestjs-observe-logger": "^0.1.0",
-    "@aldok10/nestjs-observe-logger-testing": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing": "^0.1.0"
+    "@aldok10/nestjs-observe-error-tracking": "^0.1.1",
+    "@aldok10/nestjs-observe-logger": "^0.1.1",
+    "@aldok10/nestjs-observe-logger-testing": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing": "^0.1.1"
   },
   "peerDependencies": {
-    "@aldok10/nestjs-observe-error-tracking": "^0.1.0",
-    "@aldok10/nestjs-observe-logger": "^0.1.0",
-    "@aldok10/nestjs-observe-metrics": "^0.1.0",
-    "@aldok10/nestjs-observe-tracing": "^0.1.0",
+    "@aldok10/nestjs-observe-error-tracking": "^0.1.1",
+    "@aldok10/nestjs-observe-logger": "^0.1.1",
+    "@aldok10/nestjs-observe-metrics": "^0.1.1",
+    "@aldok10/nestjs-observe-tracing": "^0.1.1",
     "@nestjs/common": "^10.0.0 || ^11.0.0 || ^12.0.0",
     "@nestjs/core": "^10.0.0 || ^11.0.0 || ^12.0.0",
     "reflect-metadata": "^0.1.12 || ^0.2.0"

@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-adapter-log4js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Independent Log4js backend adapter for @aldok10/nestjs-observe-logger",
   "type": "module",
   "engines": {
@@ -31,7 +31,7 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-logger-core": "^0.1.0"
+    "@aldok10/nestjs-observe-logger-core": "^0.1.1"
   },
   "peerDependencies": {
     "log4js": "^6.0.0"

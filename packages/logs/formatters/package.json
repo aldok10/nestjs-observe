@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-logger-formatters",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Built-in log formatters (JSON, pretty JSON, plain text) for @aldok10/nestjs-observe-logger",
   "type": "module",
   "engines": {
@@ -46,7 +46,7 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-logger-core": "^0.1.0"
+    "@aldok10/nestjs-observe-logger-core": "^0.1.1"
   },
   "repository": {
     "type": "git",

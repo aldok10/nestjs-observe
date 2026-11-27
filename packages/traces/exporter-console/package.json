@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-tracing-exporter-console",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Console trace exporter and span processor factory for @aldok10/nestjs-observe-tracing",
   "type": "module",
   "engines": {

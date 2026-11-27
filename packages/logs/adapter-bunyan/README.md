@@ -139,7 +139,7 @@ const logger = new BunyanLoggerAdapter().create(bunyan.createLogger({ name: 'api
 
 ## Dependencies and Optional Integrations
 
-- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.0`)
+- **Runtime dependency**: `@aldok10/nestjs-observe-logger-core` (`^0.1.1`)
 - **Peer dependency**: `bunyan` (`^1.8.0`)
 
 ## Lifecycle and Resource Management

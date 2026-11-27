@@ -50,12 +50,12 @@ yarn add --dev @aldok10/nestjs-observe-testing
 
 - **Node.js**: `>=22` (from `engines.node` in `package.json`)
 - **Optional Peer Dependencies** (from `package.json`, marked optional in `peerDependenciesMeta`):
-  - `@aldok10/nestjs-observe-logger`: `^0.1.0`
-  - `@aldok10/nestjs-observe-logger-testing`: `^0.1.0`
-  - `@aldok10/nestjs-observe-metrics`: `^0.1.0`
-  - `@aldok10/nestjs-observe-metrics-testing`: `^0.1.0`
-  - `@aldok10/nestjs-observe-tracing`: `^0.1.0`
-  - `@aldok10/nestjs-observe-tracing-testing`: `^0.1.0`
+  - `@aldok10/nestjs-observe-logger`: `^0.1.1`
+  - `@aldok10/nestjs-observe-logger-testing`: `^0.1.1`
+  - `@aldok10/nestjs-observe-metrics`: `^0.1.1`
+  - `@aldok10/nestjs-observe-metrics-testing`: `^0.1.1`
+  - `@aldok10/nestjs-observe-tracing`: `^0.1.1`
+  - `@aldok10/nestjs-observe-tracing-testing`: `^0.1.1`
 - **Module Formats**: ESM (`import`), CommonJS (`require`), and TypeScript type definitions (`.d.ts`)
 
 ## Quick Start

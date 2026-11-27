@@ -37,6 +37,7 @@ pnpm-debug.log*
 *.tgz
 .tmp/
 tmp/
+reports/
 
 !packages/logs/
 !docs/logs/

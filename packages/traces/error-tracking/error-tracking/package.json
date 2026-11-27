@@ -1,6 +1,6 @@
 {
   "name": "@aldok10/nestjs-observe-error-tracking",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vendor-neutral error tracking runtime, NestJS exception filter, enrichers, redaction, deduplication, and bridges for nestjs-observe",
   "type": "module",
   "engines": {
@@ -36,7 +36,7 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "@aldok10/nestjs-observe-core": "^0.1.0"
+    "@aldok10/nestjs-observe-core": "^0.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.20.7"
