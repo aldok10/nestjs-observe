@@ -25,8 +25,10 @@
     "version-packages": "changeset version",
     "version:bump": "node scripts/bump-version.mjs",
     "publish:dry-run": "pnpm -r --filter './packages/**' publish --dry-run --access public --no-git-checks",
-    "publish:packages": "pnpm -r --filter './packages/**' publish --access public --no-git-checks",
-    "publish:packages:github": "pnpm -r --filter './packages/**' publish --access public --no-git-checks --registry https://npm.pkg.github.com",
+    "publish:packages": "pnpm -r --no-bail --filter './packages/**' exec pnpm publish --access public --no-git-checks",
+    "publish:packages:github": "pnpm -r --no-bail --filter './packages/**' exec pnpm publish --access public --no-git-checks --registry https://npm.pkg.github.com",
+    "publish:check-versions": "node scripts/check-publish-versions.mjs",
+    "publish:packages:only-new": "node scripts/check-publish-versions.mjs --publish",
     "test:coverage": "vitest run --coverage",
     "pack:dry-run": "pnpm -r --filter './packages/**' exec npm pack --dry-run",
     "release": "pnpm build && pnpm test && pnpm run lint && pnpm run typecheck && pnpm changeset publish"
