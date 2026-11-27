@@ -1,0 +1,75 @@
+{
+  "name": "@aldok10/nestjs-observe-logger-core",
+  "version": "0.1.0",
+  "description": "Framework-independent universal logging contracts, redaction, formatters, channels, and transports",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "import": "./dist/contracts/index.js",
+      "require": "./dist/contracts/index.cjs"
+    },
+    "./exceptions": {
+      "types": "./dist/exceptions/index.d.ts",
+      "import": "./dist/exceptions/index.js",
+      "require": "./dist/exceptions/index.cjs"
+    },
+    "./redaction": {
+      "types": "./dist/redaction/index.d.ts",
+      "import": "./dist/redaction/index.js",
+      "require": "./dist/redaction/index.cjs"
+    },
+    "./formatters": {
+      "types": "./dist/formatters/index.d.ts",
+      "import": "./dist/formatters/index.js",
+      "require": "./dist/formatters/index.cjs"
+    },
+    "./context": {
+      "types": "./dist/context/index.d.ts",
+      "import": "./dist/context/index.js",
+      "require": "./dist/context/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/contracts/index.ts src/exceptions/index.ts src/formatters/index.ts src/context/index.ts src/redaction/index.ts --format esm,cjs --splitting --shims --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format:check": "prettier --check src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldok10/nestjs-observe.git",
+    "directory": "packages/logs/core"
+  },
+  "homepage": "https://github.com/aldok10/nestjs-observe#readme",
+  "bugs": {
+    "url": "https://github.com/aldok10/nestjs-observe/issues"
+  },
+  "author": "aldok10",
+  "keywords": [
+    "nestjs",
+    "logger",
+    "logging",
+    "typescript"
+  ],
+  "sideEffects": false
+}
