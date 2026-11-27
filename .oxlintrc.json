@@ -107,7 +107,12 @@
       }
     },
     {
-      "files": ["packages/logs/logger/src/**/*.ts", "packages/traces/tracing/src/**/*.ts", "packages/metrics/metrics/src/**/*.ts", "packages/observer/observer/src/**/*.ts"],
+      "files": [
+        "packages/logs/logger/src/**/*.ts",
+        "packages/traces/tracing/src/**/*.ts",
+        "packages/metrics/metrics/src/**/*.ts",
+        "packages/observer/observer/src/**/*.ts"
+      ],
       "rules": {
         "typescript/no-extraneous-class": "off"
       }
