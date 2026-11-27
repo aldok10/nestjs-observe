@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["node"]
+  },
+  "include": [
+    "nestjs/*.ts",
+    "custom-adapter/*.ts",
+    "custom-formatter/*.ts",
+    "custom-transport/*.ts",
+    "multiple-adapters/*.ts"
+  ]
+}
