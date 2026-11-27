@@ -1,0 +1,81 @@
+{
+  "name": "@aldok10/nestjs-observe-logger-formatters",
+  "version": "0.1.0",
+  "description": "Built-in log formatters (JSON, pretty JSON, plain text) for @aldok10/nestjs-observe-logger",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./json": {
+      "types": "./dist/json.d.ts",
+      "import": "./dist/json.js",
+      "require": "./dist/json.cjs"
+    },
+    "./pretty": {
+      "types": "./dist/pretty.d.ts",
+      "import": "./dist/pretty.js",
+      "require": "./dist/pretty.cjs"
+    },
+    "./text": {
+      "types": "./dist/text.d.ts",
+      "import": "./dist/text.js",
+      "require": "./dist/text.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/json.ts src/pretty.ts src/text.ts --format esm,cjs --splitting --dts --clean --out-dir dist",
+    "test": "vitest run src",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format:check": "prettier --check src"
+  },
+  "dependencies": {
+    "@aldok10/nestjs-observe-logger-core": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldok10/nestjs-observe.git",
+    "directory": "packages/logs/formatters"
+  },
+  "homepage": "https://github.com/aldok10/nestjs-observe#readme",
+  "bugs": {
+    "url": "https://github.com/aldok10/nestjs-observe/issues"
+  },
+  "author": "aldok10",
+  "keywords": [
+    "nestjs",
+    "logger",
+    "logging",
+    "formatter",
+    "json",
+    "pretty",
+    "text",
+    "typescript"
+  ],
+  "sideEffects": [
+    "./dist/index.js",
+    "./dist/index.cjs",
+    "./dist/json.js",
+    "./dist/json.cjs",
+    "./dist/pretty.js",
+    "./dist/pretty.cjs",
+    "./dist/text.js",
+    "./dist/text.cjs"
+  ]
+}
