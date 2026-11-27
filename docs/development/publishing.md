@@ -77,8 +77,8 @@ The workflow uses the `npm` GitHub environment, `GITHUB_TOKEN`, and `NPM_TOKEN` 
 [`.github/workflows/dev-release.yml`](../../.github/workflows/dev-release.yml) runs on pushes to `dev` and manual `workflow_dispatch`:
 
 1. Checks out `dev`.
-2. Creates an annotated git tag `dev-<YYYYMMDD-HHMMSS>-<shortsha>`.
-3. Pushes the tag and creates a GitHub prerelease.
+2. Reads version from `packages/core/package.json` and creates an annotated git tag `<major.minor.patch>-dev`.
+3. Pushes the tag and creates a GitHub prerelease if it does not already exist.
 
 Dev workflow does not publish to npm; it creates traceable dev tags/pre-releases only.
 

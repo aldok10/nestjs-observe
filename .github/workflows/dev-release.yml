@@ -28,13 +28,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          SHA_SHORT=$(git rev-parse --short HEAD)
-          TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
-          TAG="dev-${TIMESTAMP}-${SHA_SHORT}"
+          VERSION=$(node -p "require('./packages/core/package.json').version")
+          TAG="${VERSION}-dev"
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists"
             exit 0
           fi
           git tag -a "$TAG" -m "Dev release $TAG"
           git push origin "$TAG"
-          gh release create "$TAG" --prerelease --generate-notes --title "$TAG" --notes "Automated dev prerelease for commit ${GITHUB_SHA}."
+          gh release create "$TAG" --prerelease --generate-notes --title "$TAG" --notes "Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}."
