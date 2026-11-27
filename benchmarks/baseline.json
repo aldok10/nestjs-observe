@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-11-27T03:38:25.860Z",
+  "node": "v26.13.1",
+  "platform": "darwin/arm64",
+  "cpu": "Apple M4",
+  "iterations": 100000,
+  "rounds": 3,
+  "warmup": 10000,
+  "workload": "LogPipeline (redaction in emit) -> in-memory transport calling JsonLogFormatter.format",
+  "opsPerSecByRound": [74682, 75445, 72335],
+  "medianOpsPerSec": 74682,
+  "latencyNs": {
+    "p50": 12625,
+    "p95": 15084,
+    "p99": 30333
+  },
+  "checksum": {
+    "records": 310000,
+    "bytes": 65586680
+  },
+  "commands": {
+    "build": "pnpm run build",
+    "benchmark": "node benchmarks/log-throughput.mjs",
+    "baseline": "node benchmarks/log-throughput.mjs --json > benchmarks/baseline.json"
+  },
+  "caveat": "In-process microbenchmark on this machine; not a production SLA. No remote/network measurement. Results vary with hardware, GC and background load. JsonLogFormatter runs inside the in-memory transport; LogPipeline does not use its format option."
+}
