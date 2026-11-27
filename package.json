@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "husky || true",
     "bench": "node benchmarks/log-throughput.mjs",
     "build": "pnpm -r --workspace-concurrency=4 run build",
     "test": "vitest run",
