@@ -67,20 +67,20 @@ Before releasing or changing package `exports`, `files`, or dependencies, run th
 
 1. Checks out the branch, sets up `pnpm@10.11.0` and Node `22` with `https://registry.npmjs.org`.
 2. Runs `pnpm install --frozen-lockfile`.
-3. If pending `.changeset/*.md` files exist (excluding `README.md`), runs `pnpm changeset version`, commits `chore(release): version packages [skip ci]`, builds, runs `pnpm changeset publish`, pushes commit and tags, then creates GitHub Releases for new tags.
+3. If pending `.changeset/*.md` files exist (excluding `README.md`), runs `pnpm changeset version`, commits `chore(release): version packages [skip ci]`, builds, runs `pnpm changeset publish` to npm, publishes the same package versions to GitHub Packages (`npm.pkg.github.com`), pushes commit and tags, then creates GitHub Releases for new tags.
 4. If no pending changesets exist, exits without publishing.
 
-The workflow uses the `npm` GitHub environment, `GITHUB_TOKEN`, and `NPM_TOKEN` with `id-token: write` for npm provenance attestation. Each MR merged to main/master creates a stable release only when it includes a changeset.
+The workflow uses the `npm` GitHub environment, `GITHUB_TOKEN`, and `NPM_TOKEN` with `contents: write`, `id-token: write`, and `packages: write` permissions. npm publish uses `NPM_TOKEN` with provenance attestation; GitHub Packages publish uses `GITHUB_TOKEN`. Each MR merged to main/master creates a stable release only when it includes a changeset.
 
 ### Dev (dev)
 
 [`.github/workflows/dev-release.yml`](../../.github/workflows/dev-release.yml) runs on pushes to `dev` and manual `workflow_dispatch`:
 
-1. Checks out `dev`.
-2. Reads version from `packages/core/package.json` and creates an annotated git tag `<major.minor.patch>-dev`.
-3. Pushes the tag and creates a GitHub prerelease if it does not already exist.
+1. Checks out `dev`, sets up `pnpm@10.11.0` and Node `22`.
+2. If pending `.changeset/*.md` files exist, builds, creates snapshot versions (`changeset version --snapshot dev`), publishes snapshot packages to npm with tag `dev`, and publishes the same snapshots to GitHub Packages.
+3. Creates an annotated git tag `dev-<YYYYMMDD-HHMMSS>-<shortsha>`, pushes it, and creates a GitHub prerelease.
 
-Dev workflow does not publish to npm; it creates traceable dev tags/pre-releases only.
+Snapshot publish hanya jalan saat ada changeset pending; tag/pre-release dev tetap dibuat tiap push ke `dev`.
 
 ## Manual Release Command
 

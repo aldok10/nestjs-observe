@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  packages: write
 
 concurrency:
   group: dev-release-${{ github.ref }}
@@ -14,26 +16,87 @@ concurrency:
 
 jobs:
   dev-release:
-    name: Tag Dev Release
+    name: Tag and Publish Dev Release
     runs-on: ubuntu-latest
+    environment: npm
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Check for pending changesets
+        id: changesets
+        run: |
+          if find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md' | grep -q .; then
+            echo "has_changesets=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changesets=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build
+        if: steps.changesets.outputs.has_changesets == 'true'
+        run: pnpm run build
+      - name: Version snapshot packages
+        if: steps.changesets.outputs.has_changesets == 'true'
+        run: pnpm changeset version --snapshot dev
+      - name: Publish snapshot packages to npm
+        if: steps.changesets.outputs.has_changesets == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm changeset publish --tag dev --no-git-tag
+      - name: Publish snapshot packages to GitHub Packages
+        if: steps.changesets.outputs.has_changesets == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "@aldok10:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+          failed=0
+          while IFS= read -r pkg; do
+            [ -z "$pkg" ] && continue
+            echo "Publishing $pkg to GitHub Packages (dev)..."
+            out=$(cd "$pkg" && npm publish --registry https://npm.pkg.github.com --access public --no-git-checks --tag dev 2>&1) && rc=0 || rc=$?
+            if [ "$rc" -eq 0 ]; then
+              echo "$out"
+              continue
+            fi
+            if echo "$out" | grep -Eqi 'previously published|cannot publish over|EPUBLISHCONFLICT|cannot publish over the previously published versions'; then
+              echo "Skipping already-published package: $pkg"
+              continue
+            fi
+            echo "$out"
+            echo "::error::GitHub Packages dev publish failed for $pkg"
+            failed=1
+          done < <(pnpm -r --filter './packages/**' exec pwd)
+          exit "$failed"
       - name: Create dev tag and prerelease
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION=$(node -p "require('./packages/core/package.json').version")
-          TAG="${VERSION}-dev"
+          SHA_SHORT=$(git rev-parse --short HEAD)
+          TIMESTAMP=$(date -u +%Y%m%d-%H%M%S)
+          TAG="dev-${TIMESTAMP}-${SHA_SHORT}"
           if git rev-parse "$TAG" >/dev/null 2>&1; then
             echo "Tag $TAG already exists"
             exit 0
           fi
           git tag -a "$TAG" -m "Dev release $TAG"
           git push origin "$TAG"
-          gh release create "$TAG" --prerelease --generate-notes --title "$TAG" --notes "Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}."
+          if [ "${{ steps.changesets.outputs.has_changesets }}" = "true" ]; then
+            NOTE="Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}. Snapshot packages published to npm and GitHub Packages with tag dev."
+          else
+            NOTE="Automated dev prerelease ${TAG} for commit ${GITHUB_SHA}. No pending changesets; npm snapshot publish skipped."
+          fi
+          gh release create "$TAG" --prerelease --generate-notes --title "$TAG" --notes "$NOTE"
