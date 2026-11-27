@@ -28,6 +28,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm run build
       - name: Lint (Oxlint, type-aware)
         run: pnpm run lint:ci -- --type-aware .
       - name: Architecture check
@@ -38,8 +40,6 @@ jobs:
         run: pnpm run typecheck
       - name: Unit tests
         run: pnpm test
-      - name: Build
-        run: pnpm run build
       - name: Package validation (dry-run)
         run: pnpm run publish:dry-run
       - name: Fail loudly on this cell
