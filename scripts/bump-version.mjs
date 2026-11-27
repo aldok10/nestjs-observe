@@ -74,7 +74,8 @@ function bumpFromConventionalCommit(subject, body = '') {
   const text = `${subject}\n${body}`;
   if (/BREAKING CHANGE|^[a-z]+(?:\([^)]+\))?!:/im.test(text)) return 'major';
   if (/^feat(?:\([^)]+\))?:/i.test(subject)) return 'minor';
-  if (/^(fix|perf|refactor|build|ci|chore|docs|style|test|revert)(?:\([^)]+\))?:/i.test(subject)) return 'patch';
+  if (/^(fix|perf|refactor|build|ci|chore|docs|style|test|revert)(?:\([^)]+\))?:/i.test(subject))
+    return 'patch';
   return null;
 }
 
@@ -82,7 +83,8 @@ function bumpFromChangelog(content) {
   const lower = content.toLowerCase();
   if (/breaking|major/.test(lower)) return 'major';
   if (/^###?\s+added/m.test(lower) || /\bfeat\b/.test(lower)) return 'minor';
-  if (/^###?\s+(fixed|changed|security|deprecated|removed)/m.test(lower) || /\bfix\b/.test(lower)) return 'patch';
+  if (/^###?\s+(fixed|changed|security|deprecated|removed)/m.test(lower) || /\bfix\b/.test(lower))
+    return 'patch';
   return null;
 }
 
@@ -137,7 +139,8 @@ function packageForFile(file, packages) {
   const abs = path.resolve(root, file);
   let best = null;
   for (const pkg of packages) {
-    if (abs.startsWith(pkg.dir + path.sep) && (!best || pkg.dir.length > best.dir.length)) best = pkg;
+    if (abs.startsWith(pkg.dir + path.sep) && (!best || pkg.dir.length > best.dir.length))
+      best = pkg;
   }
   return best;
 }
@@ -158,8 +161,12 @@ function resolveBump() {
   const commits = getCommits(from);
   if (commits.length === 0) throw new Error(`No commits found since ${from || 'repository start'}`);
   let bump = null;
-  for (const commit of commits) bump = maxBump(bump, bumpFromConventionalCommit(commit.subject, commit.body));
-  if (!bump) throw new Error('No conventional commit bump detected (feat/fix/breaking). Use --bump or --from-changelog.');
+  for (const commit of commits)
+    bump = maxBump(bump, bumpFromConventionalCommit(commit.subject, commit.body));
+  if (!bump)
+    throw new Error(
+      'No conventional commit bump detected (feat/fix/breaking). Use --bump or --from-changelog.',
+    );
   return { bump, source: `conventional commits since ${from || 'repository start'}`, from };
 }
 
@@ -174,7 +181,12 @@ function resolveTargetPackages(packages, from) {
   return [...targets.values()];
 }
 
-const DEP_SECTIONS = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
+const DEP_SECTIONS = [
+  'dependencies',
+  'devDependencies',
+  'peerDependencies',
+  'optionalDependencies',
+];
 
 function updateInternalDeps(pkg, bumpedVersions) {
   let changed = false;
@@ -223,7 +235,9 @@ const depUpdatedFiles = new Set();
 for (const pkg of packages) {
   if (updateInternalDeps(pkg, bumpedVersions)) {
     depUpdatedFiles.add(pkg.file);
-    console.log(`${dryRun ? '[dry-run] ' : ''}${pkg.json.name}: updated internal dependency ranges`);
+    console.log(
+      `${dryRun ? '[dry-run] ' : ''}${pkg.json.name}: updated internal dependency ranges`,
+    );
   }
 }
 
@@ -234,4 +248,6 @@ if (!dryRun) {
     }
   }
 }
-console.log(`${dryRun ? 'Dry run' : 'Updated'}: ${targets.length} package version(s), ${depUpdatedFiles.size} package(s) with internal dep range updates.`);
+console.log(
+  `${dryRun ? 'Dry run' : 'Updated'}: ${targets.length} package version(s), ${depUpdatedFiles.size} package(s) with internal dep range updates.`,
+);
