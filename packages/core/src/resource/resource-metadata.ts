@@ -24,7 +24,9 @@ export function createResourceMetadata(input: ResourceMetadata = {}): ResourceMe
     ...(input.serviceName !== undefined ? { serviceName: input.serviceName } : {}),
     ...(input.serviceVersion !== undefined ? { serviceVersion: input.serviceVersion } : {}),
     ...(input.serviceNamespace !== undefined ? { serviceNamespace: input.serviceNamespace } : {}),
-    ...(input.serviceInstanceId !== undefined ? { serviceInstanceId: input.serviceInstanceId } : {}),
+    ...(input.serviceInstanceId !== undefined
+      ? { serviceInstanceId: input.serviceInstanceId }
+      : {}),
     ...(input.environment !== undefined ? { environment: input.environment } : {}),
     ...(input.application !== undefined ? { application: input.application } : {}),
     ...(attributes !== undefined ? { attributes } : {}),

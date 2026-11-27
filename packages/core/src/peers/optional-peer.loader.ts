@@ -6,8 +6,7 @@ export class OptionalPeerLoader {
   private readonly requireModule: NodeRequire;
 
   constructor(importMetaUrl?: string) {
-    const base =
-      importMetaUrl ?? (typeof __filename === 'string' ? __filename : import.meta.url);
+    const base = importMetaUrl ?? (typeof __filename === 'string' ? __filename : import.meta.url);
     this.requireModule = createRequire(base);
   }
 

@@ -28,10 +28,7 @@ export class ObserveContextStore {
   }
 }
 
-function mergeContext(
-  current: ObserveContextData,
-  next: ObserveContextData,
-): ObserveContextData {
+function mergeContext(current: ObserveContextData, next: ObserveContextData): ObserveContextData {
   const attributes =
     current.attributes !== undefined || next.attributes !== undefined
       ? { ...current.attributes, ...next.attributes }
