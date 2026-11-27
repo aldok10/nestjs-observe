@@ -61,15 +61,26 @@ Before releasing or changing package `exports`, `files`, or dependencies, run th
 
 ## Automated Release Workflow
 
-[`.github/workflows/release.yml`](../../.github/workflows/release.yml) runs on pushes to `main` and manual `workflow_dispatch`:
+### Stable (main/master)
 
-1. Checks out `main`, sets up `pnpm@10.11.0` and Node `22` with `https://registry.npmjs.org`.
-2. Runs `pnpm install --frozen-lockfile` and `pnpm run build`.
-3. Runs `changesets/action@v1` with:
-   - `version: pnpm changeset version` (opens or updates a `chore(release): version packages` PR when `.changeset/*.md` files exist)
-   - `publish: pnpm changeset publish` (publishes updated packages to npm with `NPM_CONFIG_PROVENANCE: true` once the release PR is merged)
+[`.github/workflows/release.yml`](../../.github/workflows/release.yml) runs on pushes to `main` or `master` and manual `workflow_dispatch`:
 
-The workflow uses the `npm` GitHub environment, `GITHUB_TOKEN`, and `NPM_TOKEN` with `id-token: write` permission for npm provenance attestation.
+1. Checks out the branch, sets up `pnpm@10.11.0` and Node `22` with `https://registry.npmjs.org`.
+2. Runs `pnpm install --frozen-lockfile`.
+3. If pending `.changeset/*.md` files exist (excluding `README.md`), runs `pnpm changeset version`, commits `chore(release): version packages [skip ci]`, builds, runs `pnpm changeset publish`, pushes commit and tags, then creates GitHub Releases for new tags.
+4. If no pending changesets exist, exits without publishing.
+
+The workflow uses the `npm` GitHub environment, `GITHUB_TOKEN`, and `NPM_TOKEN` with `id-token: write` for npm provenance attestation. Each MR merged to main/master creates a stable release only when it includes a changeset.
+
+### Dev (dev)
+
+[`.github/workflows/dev-release.yml`](../../.github/workflows/dev-release.yml) runs on pushes to `dev` and manual `workflow_dispatch`:
+
+1. Checks out `dev`.
+2. Creates an annotated git tag `dev-<YYYYMMDD-HHMMSS>-<shortsha>`.
+3. Pushes the tag and creates a GitHub prerelease.
+
+Dev workflow does not publish to npm; it creates traceable dev tags/pre-releases only.
 
 ## Manual Release Command
 
